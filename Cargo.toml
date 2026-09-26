@@ -1,0 +1,56 @@
+[package]
+name = "taskdeck"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "A polished terminal task dashboard"
+license = "MIT"
+repository = "https://github.com/aakash-env/TODO-terminal"
+homepage = "https://github.com/aakash-env/TODO-terminal"
+
+[workspace]
+members = ["."]
+resolver = "3"
+
+# Config for 'dist'
+[workspace.metadata.dist]
+# The preferred dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.33.0"
+# CI backends to support
+ci = "github"
+# The installers to generate for each app
+installers = ["shell", "powershell", "homebrew"]
+# Publish jobs to run in CI
+publish-jobs = ["homebrew"]
+# A GitHub repo to push Homebrew formulas to
+tap = "aakash-env/homebrew-tap"
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+# Path that installers should place binaries in
+install-path = "CARGO_HOME"
+# Where to host releases
+hosting = "github"
+# Whether to install an updater program
+install-updater = false
+
+[dependencies]
+anyhow = "=1.0.100"
+chrono = { version = "=0.4.42", features = ["clock"] }
+clap = { version = "=4.5.53", features = ["derive"] }
+crossterm = "=0.29.0"
+dirs = "=6.0.0"
+ratatui = { version = "=0.30.2", default-features = false, features = ["crossterm", "std"] }
+rusqlite = { version = "=0.37.0", features = ["bundled"] }
+serde = { version = "=1.0.228", features = ["derive"] }
+tachyonfx = "=0.25.2"
+toml = "=0.9.8"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
