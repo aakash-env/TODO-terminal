@@ -7,13 +7,13 @@ Taskdeck is a local-first terminal task dashboard for developers. The interface 
 **macOS / Linux** (prebuilt, no Rust toolchain required):
 
 ```sh
-curl -sSf https://github.com/aakash-env/TODO-terminal/releases/latest/download/taskdeck-installer.sh | sh
+curl -sSf https://github.com/aakash-env/Terminal/releases/latest/download/taskdeck-installer.sh | sh
 ```
 
 **Windows PowerShell** (prebuilt):
 
 ```powershell
-powershell -ExecutionPolicy Bypass -c "irm https://github.com/aakash-env/TODO-terminal/releases/latest/download/taskdeck-installer.ps1 | iex"
+powershell -ExecutionPolicy Bypass -c "irm https://github.com/aakash-env/Terminal/releases/latest/download/taskdeck-installer.ps1 | iex"
 ```
 
 **Homebrew:**
@@ -25,10 +25,10 @@ brew install aakash-env/tap/taskdeck
 **Rust toolchain fallback** (install directly from Git; crates.io publishing is not configured):
 
 ```sh
-cargo install --git https://github.com/aakash-env/TODO-terminal.git
+cargo install --git https://github.com/aakash-env/Terminal.git
 ```
 
-**Manual download:** choose the archive for your platform from the [GitHub Releases](https://github.com/aakash-env/TODO-terminal/releases) page.
+**Manual download:** choose the archive for your platform from the [GitHub Releases](https://github.com/aakash-env/Terminal/releases) page.
 
 Homebrew releases require the `aakash-env/homebrew-tap` repository and a `HOMEBREW_TAP_TOKEN` GitHub Actions secret with write access to it.
 
